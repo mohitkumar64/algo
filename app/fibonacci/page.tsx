@@ -7,6 +7,7 @@ import { AlgoMode, TreeNode, ExecutionStep, Stats, TreeLayout } from "@/app/type
 import { generateFibonacciTree } from "@/app/lib/fibonacci";
 import { layoutTree } from "@/app/lib/layoutTree";
 import TreeCanvas from "@/app/components/TreeCanvas";
+import TreeCanvas3D from "@/app/components/TreeCanvas3D";
 import Controls from "@/app/components/Controls";
 import StatsPanel from "@/app/components/StatsPanel";
 import MemoTable from "@/app/components/MemoTable";
@@ -48,6 +49,7 @@ export default function FibVisualizerPage() {
   const [fibN, setFibN] = useState<number>(6);
   const [speed, setSpeed] = useState<number>(2);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [root, setRoot] = useState<TreeNode | null>(null);
   const [layout, setLayout] = useState<TreeLayout | null>(null);
   const [steps, setSteps] = useState<ExecutionStep[]>([]);
@@ -67,10 +69,13 @@ export default function FibVisualizerPage() {
 
   const [editorVisible, setEditorVisible] = useState<boolean>(true);
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(true);
+  const [viewMode, setViewMode] = useState<"2d" | "3d">("2d");
 
   const intervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const stepRef = useRef(currentStep);
-  stepRef.current = currentStep;
+  useEffect(() => {
+    stepRef.current = currentStep;
+  }, [currentStep]);
 
   // ─── Build tree ───────────────────────────────────────────────────────────
   const buildTree = useCallback((n: number, m: AlgoMode) => {
@@ -97,6 +102,7 @@ export default function FibVisualizerPage() {
 
   // Build on initial render and on changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     buildTree(fibN, mode);
   }, [fibN, mode, buildTree]);
 
@@ -257,6 +263,14 @@ export default function FibVisualizerPage() {
               {mode === "recursive" ? "O(2\u207f)" : "O(n)"}
             </div>
 
+            {/* 3D toggle */}
+            <button
+              onClick={() => setViewMode((v) => (v === "2d" ? "3d" : "2d"))}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all duration-150"
+            >
+              {viewMode === "2d" ? "View in 3D" : "View in 2D"}
+            </button>
+
             {/* Editor toggle */}
             <button
               id="btn-toggle-editor"
@@ -295,13 +309,23 @@ export default function FibVisualizerPage() {
                   fib({fibN}) — {mode === "recursive" ? "Recursive Tree" : "Memoization Tree"}
                 </span>
               </div>
-              <TreeCanvas
-                layout={layout}
-                activeNodeIds={activeNodeIds}
-                computedNodeIds={computedNodeIds}
-                cacheHitNodeIds={cacheHitNodeIds}
-                repeatedInputs={repeatedInputs}
-              />
+              {viewMode === "2d" ? (
+                <TreeCanvas
+                  layout={layout}
+                  activeNodeIds={activeNodeIds}
+                  computedNodeIds={computedNodeIds}
+                  cacheHitNodeIds={cacheHitNodeIds}
+                  repeatedInputs={repeatedInputs}
+                />
+              ) : (
+                <TreeCanvas3D
+                  layout={layout}
+                  activeNodeIds={activeNodeIds}
+                  computedNodeIds={computedNodeIds}
+                  cacheHitNodeIds={cacheHitNodeIds}
+                  repeatedInputs={repeatedInputs}
+                />
+              )}
             </div>
 
             {/* Memo table — only in DP mode, below the tree */}
