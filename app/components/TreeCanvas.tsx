@@ -16,8 +16,8 @@ interface TreeCanvasProps {
 
 const STATE_COLORS: Record<string, { fill: string; stroke: string; text: string; glow: string }> = {
   waiting: {
-    fill: "#1a1f2e",
-    stroke: "#2d3348",
+    fill: "#262626",
+    stroke: "#404040",
     text: "#6b7280",
     glow: "none",
   },
@@ -288,7 +288,7 @@ export default function TreeCanvas({
             y1={edge.y1}
             x2={edge.x2}
             y2={edge.y2}
-            stroke={edge.isDotted ? "#6b21a8" : "#2d3348"}
+            stroke={edge.isDotted ? "#6b21a8" : "#404040"}
             strokeWidth={edge.isDotted ? 1.5 : 1.5}
             strokeDasharray={edge.isDotted ? "5,4" : undefined}
             opacity={edge.isDotted ? 0.7 : 0.6}

@@ -16,7 +16,7 @@ import AlgoSidebar from "@/app/components/AlgoSidebar";
 const MonacoPanel = dynamic(() => import("@/app/components/MonacoPanel"), {
   ssr: false,
   loading: () => (
-    <div className="flex flex-col h-full bg-[#0d1117] rounded-xl border border-white/10 items-center justify-center text-gray-600 text-sm">
+    <div className="flex flex-col h-full bg-[#1a1a1a] rounded-xl border border-white/10 items-center justify-center text-gray-600 text-sm">
       Loading editor…
     </div>
   ),
@@ -219,7 +219,7 @@ export default function FibVisualizerPage() {
   const handleFibNChange = (n: number) => setFibN(n);
 
   return (
-    <main className="flex h-screen bg-[#090d18] text-white overflow-hidden">
+    <main className="flex h-screen bg-[#111111] text-white overflow-hidden">
       {/* Algo Sidebar */}
       <AlgoSidebar
         mode={mode}
@@ -231,7 +231,7 @@ export default function FibVisualizerPage() {
       {/* Main content column */}
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         {/* Header */}
-        <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#0a0f1e]/80 backdrop-blur-sm flex-shrink-0">
+        <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#171717]/80 backdrop-blur-sm flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-sm font-bold">
               <Code />
@@ -289,7 +289,7 @@ export default function FibVisualizerPage() {
           {/* CENTER: Tree Canvas + Memo Table below */}
           <div className="flex-1 flex flex-col gap-3 min-w-0 overflow-hidden">
             {/* Tree panel */}
-            <div className="flex-1 rounded-xl border border-white/10 bg-[#0a0f1e] relative overflow-hidden min-h-0">
+            <div className="flex-1 rounded-xl border border-white/10 bg-[#171717] relative overflow-hidden min-h-0">
               <div className="absolute top-3 left-3 z-10">
                 <span className="text-xs text-gray-500 bg-black/40 rounded-md px-2 py-1 backdrop-blur-sm">
                   fib({fibN}) — {mode === "recursive" ? "Recursive Tree" : "Memoization Tree"}

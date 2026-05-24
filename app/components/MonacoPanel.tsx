@@ -14,15 +14,15 @@ export default function MonacoPanel({ mode, onModeChange }: MonacoPanelProps) {
   const code = mode === "recursive" ? RECURSIVE_CODE : DP_CODE;
 
   return (
-    <div className="flex flex-col h-full bg-[#0d1117] rounded-xl overflow-hidden border border-white/10">
+    <div className="flex flex-col h-full bg-[#1a1a1a] rounded-xl overflow-hidden border border-white/10">
       {/* Tabs */}
-      <div className="flex items-center gap-1 px-3 pt-3 pb-0 border-b border-white/10 bg-[#0d1117]">
+      <div className="flex items-center gap-1 px-3 pt-3 pb-0 border-b border-white/10 bg-[#1a1a1a]">
         <button
           id="tab-recursive"
           onClick={() => onModeChange("recursive")}
           className={`px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200 ${
             mode === "recursive"
-              ? "bg-[#1e1e2e] text-purple-400 border border-b-0 border-purple-500/40"
+              ? "bg-[#2a2a2a] text-purple-400 border border-b-0 border-purple-500/40"
               : "text-gray-500 hover:text-gray-300"
           }`}
         >
@@ -33,7 +33,7 @@ export default function MonacoPanel({ mode, onModeChange }: MonacoPanelProps) {
           onClick={() => onModeChange("dp")}
           className={`px-4 py-2 rounded-t-lg text-sm font-medium transition-all duration-200 ${
             mode === "dp"
-              ? "bg-[#1e1e2e] text-emerald-400 border border-b-0 border-emerald-500/40"
+              ? "bg-[#2a2a2a] text-emerald-400 border border-b-0 border-emerald-500/40"
               : "text-gray-500 hover:text-gray-300"
           }`}
         >

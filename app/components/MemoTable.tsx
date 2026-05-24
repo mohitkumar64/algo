@@ -24,7 +24,7 @@ export default function MemoTable({ memoSnapshot, fibN, highlightIndex }: MemoTa
   const fillPercent = Math.round((filledCount / (fibN + 1)) * 100);
 
   return (
-    <div className="bg-[#0d1117] rounded-xl border border-white/10 p-4">
+    <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-4">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-emerald-400 tracking-wide flex items-center gap-2">
           <Database size={14} className="text-emerald-500" />
@@ -75,7 +75,7 @@ export default function MemoTable({ memoSnapshot, fibN, highlightIndex }: MemoTa
                           ? "border-emerald-400 bg-emerald-900/50 text-emerald-200 shadow-[0_0_12px_rgba(52,211,153,0.3)] scale-105"
                           : hasValue
                           ? "border-emerald-900/50 bg-emerald-950/40 text-emerald-400"
-                          : "border-white/5 bg-[#161b27] text-gray-700"
+                          : "border-white/5 bg-[#202020] text-gray-700"
                       }
                     `}
                   >

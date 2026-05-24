@@ -31,7 +31,7 @@ function StatCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div className={`bg-[#0d1117] rounded-xl border p-3 ${colorClass}`}>
+    <div className={`bg-[#1a1a1a] rounded-xl border p-3 ${colorClass}`}>
       <div className="flex items-center gap-2 mb-1">
         <span className="flex-shrink-0">{icon}</span>
         <span className="text-xs text-gray-400 font-medium">{label}</span>
@@ -49,7 +49,7 @@ export default function StatsPanel({
 }: StatsPanelProps) {
   if (!stats) {
     return (
-      <div className="bg-[#0d1117] rounded-xl border border-white/10 p-4 text-center text-gray-600 text-sm">
+      <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-4 text-center text-gray-600 text-sm">
         Statistics will appear here after running.
       </div>
     );
@@ -58,7 +58,7 @@ export default function StatsPanel({
   return (
     <div className="space-y-3">
       {/* Complexity + progress */}
-      <div className="bg-[#0d1117] rounded-xl border border-white/10 p-3">
+      <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-3">
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 font-medium">Complexity</span>
           <span
@@ -142,7 +142,7 @@ export default function StatsPanel({
       </div>
 
       {/* Legend */}
-      <div className="bg-[#0d1117] rounded-xl border border-white/10 p-3">
+      <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-3">
         <h4 className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2">
           Node color Legend
         </h4>

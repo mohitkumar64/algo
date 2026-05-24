@@ -48,7 +48,7 @@ export default function Controls({
   const isRecursive = mode === "recursive";
 
   return (
-    <div className="bg-[#0d1117] rounded-xl border border-white/10 p-4 space-y-4">
+    <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-4 space-y-4">
       <h3 className="text-sm font-semibold text-gray-300 tracking-wide flex items-center gap-2">
         <Gamepad2 size={15} className="text-gray-400" />
         Controls

@@ -157,7 +157,7 @@ export default function AlgoSidebar({
 
   return (
     <aside
-      className="flex-shrink-0 flex flex-col bg-[#0a0f1e] border-r border-white/10 transition-all duration-300 ease-in-out overflow-hidden"
+      className="flex-shrink-0 flex flex-col bg-[#171717] border-r border-white/10 transition-all duration-300 ease-in-out overflow-hidden"
       style={{ width: expanded ? 224 : 56 }}
     >
       {/* Sidebar header */}
@@ -258,7 +258,7 @@ export default function AlgoSidebar({
                   {/* Collapsed tooltip on hover */}
                   {!expanded && (
                     <div className="absolute left-full ml-2 z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap">
-                      <div className="bg-[#1a1f2e] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-gray-300 shadow-xl">
+                      <div className="bg-[#262626] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-gray-300 shadow-xl">
                         {item.label}
                         {item.badge && (
                           <span className="ml-1 text-gray-500">
